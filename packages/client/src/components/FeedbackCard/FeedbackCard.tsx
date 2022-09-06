@@ -1,24 +1,27 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { RatingStars } from "../RatingStars";
 
-export const FeedbackCard: React.FC = () => {
-    const date = new Date();
+type Props = {
+    feedback: Feedback;
+};
+
+export const FeedbackCard: React.FC<Props> = ({ feedback }) => {
+    const { text, rating, user, date } = feedback;
     const dateUTC = date.toUTCString();
 
     return (
         <div>
             <Card>
             <Card.Header as="h5">
-                Featured
+                {user.name}
                 <Card.Title>{dateUTC}</Card.Title>
             </Card.Header>
             <Card.Body>
                 <Card.Text>
-                With supporting text below as a natural lead-in to additional content.
+                {text}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-                <RatingStars />
+                <RatingStars readonly={true} rating={rating} />
             </Card.Body>
             </Card>
         </div>

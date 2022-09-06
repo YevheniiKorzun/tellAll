@@ -1,10 +1,15 @@
 import React from "react";
-import { Rating } from 'react-simple-star-rating'
+import { Rating } from 'react-simple-star-rating';
 
-export const RatingStars: React.FC = () => {
+type Props = {
+    readonly: boolean;
+    rating: number;
+};
+
+export const RatingStars: React.FC<Props> = ({ readonly, rating }) => {
     return (
         <div>
-            <Rating ratingValue={0} readonly={true} initialValue={2} />
+            <Rating ratingValue={0} readonly={readonly} initialValue={rating} />
         </div>
     );
 }
