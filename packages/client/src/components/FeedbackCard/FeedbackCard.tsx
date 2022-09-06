@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { RatingStars } from "../RatingStars";
 
 export const FeedbackCard: React.FC = () => {
     const date = new Date();
@@ -17,6 +18,7 @@ export const FeedbackCard: React.FC = () => {
                 With supporting text below as a natural lead-in to additional content.
                 </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
+                <RatingStars />
             </Card.Body>
             </Card>
         </div>
